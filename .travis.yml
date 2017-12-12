@@ -1,4 +1,6 @@
 language: cpp
+sudo: true
+dist: trusty
 matrix:
    include:
     - os: linux
@@ -13,3 +15,14 @@ matrix:
 
 before_install:
     - eval "${MATRIX_EVAL}"
+
+compiler:
+  - gcc
+
+before_script:
+  - mkdir build
+  - cd build
+  - cmake ..
+script: make && make test
+ 
+
